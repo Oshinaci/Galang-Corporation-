@@ -9,6 +9,13 @@
   <script>
     tailwind.config = { darkMode: 'class' };
   </script>
+  <script>
+    if (localStorage.theme === 'dark' || !('theme' in localStorage)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
 </head>
 <body class="bg-gray-900 text-gray-100 transition-colors duration-300">
 
@@ -24,13 +31,13 @@
   </header>
 
   <!-- Hero -->
-  <section class="max-w-4xl mx-auto px-6 py-20 text-center" data-aos="fade-up">
+  <section class="px-6 py-20 text-center" data-aos="fade-up">
     <h1 class="text-3xl font-bold mb-4">Solusi Website Modern</h1>
     <p class="mb-6 text-gray-300">Bantu bisnis Anda tampil profesional dengan website cepat, aman, dan gratis hosting di GitHub Pages.</p>
   </section>
 
   <!-- Fitur -->
-  <section id="features" class="max-w-6xl mx-auto px-6 py-16">
+  <section id="features" class="px-6 py-16">
     <h2 class="text-2xl font-semibold text-center mb-10" data-aos="fade-up">Fitur Website Kami</h2>
     <div class="grid md:grid-cols-3 gap-6">
       <div class="bg-gray-800 p-6 rounded-xl shadow" data-aos="zoom-in-up">
@@ -52,7 +59,7 @@
   </section>
 
   <!-- About -->
-  <section id="about" class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+  <section id="about" class="px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
     <img src="https://placehold.co/200x200" alt="Foto Profil" class="rounded-full mx-auto" data-aos="fade-right">
     <div data-aos="fade-left">
       <h2 class="text-2xl font-semibold mb-4">Tentang Kami</h2>
@@ -61,7 +68,7 @@
   </section>
 
   <!-- Portofolio -->
-  <section id="portfolio" class="max-w-6xl mx-auto px-6 py-16">
+  <section id="portfolio" class="px-6 py-16">
     <h2 class="text-2xl font-semibold text-center mb-10" data-aos="fade-up">Portofolio</h2>
     <div class="grid md:grid-cols-2 gap-6">
       <div class="bg-gray-800 p-4 rounded-xl shadow" data-aos="flip-up">
@@ -76,7 +83,7 @@
   </section>
 
   <!-- Kontak -->
-  <section id="contact" class="max-w-4xl mx-auto px-6 py-16 text-center" data-aos="fade-up">
+  <section id="contact" class="px-6 py-16 text-center" data-aos="fade-up">
     <h2 class="text-2xl font-semibold mb-4">Kontak</h2>
     <p class="mb-6 text-gray-300">Klik tombol di bawah ini untuk langsung chat via WhatsApp:</p>
     <a href="https://wa.me/6282124643404" target="_blank"
@@ -94,30 +101,23 @@
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
   <script>
-    // AOS
     AOS.init({ duration: 800, once: true });
 
-    // Dark mode toggle with localStorage
-    const toggle = document.getElementById('darkToggle');
-    const html = document.documentElement;
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('darkToggle');
+      const html = document.documentElement;
 
-    // Default dark
-    if (localStorage.theme === 'dark' || !('theme' in localStorage)) {
-      html.classList.add('dark');
-      toggle.checked = true;
-    } else {
-      html.classList.remove('dark');
-      toggle.checked = false;
-    }
+      toggle.checked = html.classList.contains('dark');
 
-    toggle.addEventListener('change', () => {
-      if (toggle.checked) {
-        html.classList.add('dark');
-        localStorage.theme = 'dark';
-      } else {
-        html.classList.remove('dark');
-        localStorage.theme = 'light';
-      }
+      toggle.addEventListener('change', () => {
+        if (toggle.checked) {
+          html.classList.add('dark');
+          localStorage.theme = 'dark';
+        } else {
+          html.classList.remove('dark');
+          localStorage.theme = 'light';
+        }
+      });
     });
   </script>
 </body>
