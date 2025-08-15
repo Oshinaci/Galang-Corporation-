@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Startup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <script>
+    tailwind.config = { darkMode: 'class' };
+  </script>
+</head>
+<body class="bg-gray-900 text-gray-100 transition-colors duration-300">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-gray-900/80 backdrop-blur border-b border-gray-700 flex justify-between items-center px-6 py-3">
+    <div class="text-xl font-bold">My Startup</div>
+    <label class="flex items-center cursor-pointer">
+      <input type="checkbox" id="darkToggle" class="hidden">
+      <div class="w-10 h-5 bg-gray-600 rounded-full relative transition">
+        <div class="absolute left-0.5 top-0.5 w-4 h-4 bg-white rounded-full transition-transform"></div>
+      </div>
+    </label>
+  </header>
+
+  <!-- Hero -->
+  <section class="max-w-4xl mx-auto px-6 py-20 text-center" data-aos="fade-up">
+    <h1 class="text-3xl font-bold mb-4">Solusi Website Modern</h1>
+    <p class="mb-6 text-gray-300">Bantu bisnis Anda tampil profesional dengan website cepat, aman, dan gratis hosting di GitHub Pages.</p>
+  </section>
+
+  <!-- Fitur -->
+  <section id="features" class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="text-2xl font-semibold text-center mb-10" data-aos="fade-up">Fitur Website Kami</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-gray-800 p-6 rounded-xl shadow" data-aos="zoom-in-up">
+        <i class="fa-brands fa-github text-2xl mb-3"></i>
+        <h3 class="font-semibold mb-2">Hosting Gratis</h3>
+        <p class="text-gray-400">Website di-host gratis di GitHub Pages tanpa biaya bulanan.</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-xl shadow" data-aos="zoom-in-up" data-aos-delay="100">
+        <i class="fa-solid fa-desktop text-2xl mb-3"></i>
+        <h3 class="font-semibold mb-2">Desain Responsif</h3>
+        <p class="text-gray-400">Tampilan menyesuaikan semua ukuran layar, dari HP hingga desktop.</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-xl shadow" data-aos="zoom-in-up" data-aos-delay="200">
+        <i class="fa-solid fa-moon text-2xl mb-3"></i>
+        <h3 class="font-semibold mb-2">Mode Gelap/Terang</h3>
+        <p class="text-gray-400">Pilih tema sesuai selera dengan tombol dark mode.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+    <img src="https://placehold.co/200x200" alt="Foto Profil" class="rounded-full mx-auto" data-aos="fade-right">
+    <div data-aos="fade-left">
+      <h2 class="text-2xl font-semibold mb-4">Tentang Kami</h2>
+      <p class="text-gray-300">Kami membantu UMKM & startup tampil profesional di internet dengan landing page cepat, aman, dan mudah dikelola. Stack ringan: HTML + Tailwind + sedikit JavaScript. Hosting gratis di GitHub Pages.</p>
+    </div>
+  </section>
+
+  <!-- Portofolio -->
+  <section id="portfolio" class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="text-2xl font-semibold text-center mb-10" data-aos="fade-up">Portofolio</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-gray-800 p-4 rounded-xl shadow" data-aos="flip-up">
+        <img src="https://placehold.co/600x400" alt="Proyek 1" class="rounded mb-3">
+        <h3 class="font-semibold">Coffee Co. – Landing Page</h3>
+      </div>
+      <div class="bg-gray-800 p-4 rounded-xl shadow" data-aos="flip-up" data-aos-delay="100">
+        <img src="https://placehold.co/600x400" alt="Proyek 2" class="rounded mb-3">
+        <h3 class="font-semibold">FitTrack – App Website</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontak -->
+  <section id="contact" class="max-w-4xl mx-auto px-6 py-16 text-center" data-aos="fade-up">
+    <h2 class="text-2xl font-semibold mb-4">Kontak</h2>
+    <p class="mb-6 text-gray-300">Klik tombol di bawah ini untuk langsung chat via WhatsApp:</p>
+    <a href="https://wa.me/6282124643404" target="_blank"
+       class="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-medium rounded-full inline-flex items-center gap-2 transition">
+      <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center p-6 border-t border-gray-700 text-gray-400">
+    © 2025 My Startup. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script>
+    // AOS
+    AOS.init({ duration: 800, once: true });
+
+    // Dark mode toggle with localStorage
+    const toggle = document.getElementById('darkToggle');
+    const html = document.documentElement;
+
+    // Default dark
+    if (localStorage.theme === 'dark' || !('theme' in localStorage)) {
+      html.classList.add('dark');
+      toggle.checked = true;
+    } else {
+      html.classList.remove('dark');
+      toggle.checked = false;
+    }
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        html.classList.add('dark');
+        localStorage.theme = 'dark';
+      } else {
+        html.classList.remove('dark');
+        localStorage.theme = 'light';
+      }
+    });
+  </script>
+</body>
+</html>
